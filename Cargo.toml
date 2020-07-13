@@ -1,0 +1,11 @@
+[package]
+name = "algorithms-rs"
+version = "0.1.0"
+authors = ["VenmoSnake <VenmoTools@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+random="0.12.2"
+log="0.4.8"
+pretty_env_logger="0.4.0"
