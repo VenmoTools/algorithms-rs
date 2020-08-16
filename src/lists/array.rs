@@ -128,6 +128,23 @@ impl<T> Array<T> {
         Some(unsafe { &*self.buf.ptr.offset(index) })
     }
 
+    /// get mutable element from array
+    /// ```no_run
+    /// use algorithms_rs::lists::array::Array;
+    /// let mut arr = Array::new();
+    /// arr.append(5);
+    /// let ele = raw.get_mut(0).unwrap();
+    /// *ele = 10;
+    /// let ele = raw.get(0);
+    /// assert_eq!(ele,Some(&10));
+    /// ```
+    pub fn get_mut(&self, index: usize) -> Option<&mut T> {
+        if index >= self.size {
+            return None;
+        }
+        Some(unsafe { &mut *self.buf.ptr.offset(index) })
+    }
+
     /// insert element to array
     /// # Zero Size Object
     /// current version do not support zero size object, this is undefine behavior!!
@@ -408,6 +425,10 @@ fn test() -> Result<(), error::Error> {
 
     print_arr(&raw);
 
+    let ele = raw.get_mut(0).unwrap();
+    *ele = 10;
+    let ele = raw.get(0);
+    assert_eq!(ele, Some(&10));
     Ok(())
 }
 

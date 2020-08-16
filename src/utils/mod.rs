@@ -3,6 +3,8 @@
 //
 use std::time::SystemTime;
 
+mod graph;
+
 /// calculate function execute time
 /// ```no_run
 /// use random::Source;
